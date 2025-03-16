@@ -19,15 +19,37 @@ class CallQueue {
     }
     //You have to write this method
     public void enqueueCall(int customerId, boolean isVip) {
-        // To Do
+        if(isVip){
+            vipQueue.enqueue(customerId);
+            System.out.println("Customer "+customerId+" added to VIP queue.");
+        }
+        else{
+            regularQueue.enqueue(customerId);
+            System.out.println("Customer"+customerId+" added to Regular queue.");
+        }
     }
     //You have to write this method
     public void dequeueCall() {
-        // To Do 
+        if(vipQueue.isEmpty()){
+            if(!regularQueue.isEmpty()){
+                System.out.println("Processing Regular Customer "+regularQueue.peek());
+                regularQueue.dequeue();
+            }
+            else{
+                System.out.println("No calls in the queue.");
+            }
+        } 
+        else{
+            System.out.println("Processing VIP Customer "+vipQueue.peek()+".");
+            vipQueue.dequeue();
+        }
     }
     //You have to write this method
     public void displayQueue() {
-        // To Do
+        System.out.println("VIP Queue:");
+        vipQueue.displayQueue();
+        System.out.println("Regular Queue:");
+        regularQueue.displayQueue();
     }
     public static void main(String[] args) {
         //      ::Expected Ouput::

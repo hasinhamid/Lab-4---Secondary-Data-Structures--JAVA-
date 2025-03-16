@@ -36,8 +36,17 @@ public class StackTasksTester {
     // Task 6
     // You have to write this method
     public static Stack conditionalReverse(Stack stack) {
-        // To Do
-        return null; //remove this line once your're done
+        Stack stk= new Stack();
+        while (!stack.isEmpty()) {
+            int a= stack.pop();
+            if(stk.isEmpty()){
+                stk.push(a);
+            }
+            else if(stk.peek()!=a){
+                stk.push(a);
+            }
+        }
+        return stk; //remove this line once your're done
     }
 
     //DO NOT CHANGE THIS METHOD
@@ -147,7 +156,6 @@ public class StackTasksTester {
         System.out.println("------");
 
         System.out.println("======Task 5 Test Ends Here=======\n");
-/* 
         System.out.println("======Task 6 Test Starts Here=======");
         System.out.println("Test 01");
         Stack st = new Stack();
@@ -169,6 +177,6 @@ public class StackTasksTester {
         printStack(reversedStack); // Expected: 50, 10, 30, 20, 10
         System.out.println("------");
 
-        System.out.println("======Task 6 Test Ends Here=======");*/
+        System.out.println("======Task 6 Test Ends Here=======");
     }
 }

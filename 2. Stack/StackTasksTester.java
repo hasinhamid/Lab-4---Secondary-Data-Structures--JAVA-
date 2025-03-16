@@ -3,15 +3,34 @@ public class StackTasksTester {
     // Task 4
     // You have to write this method
     public static int diamondCount(Stack stack, String str) {
-        // To Do
-        // As the stack is storing int type data in the stack and you are checking a String. Consider '>' = 1, '<' = 2 and '.' = 3 for mapping String with integer.
-        return -1; // Delete this line
+       int sum=0;
+       for(int i=0;i<str.length();i++){
+            int ch= str.charAt(i);
+            if(ch==60){         //< = 60  ;     >=62
+                stack.push(ch);
+            }      
+            else if(ch==62){
+                if(stack.peek()!=null){
+                    stack.pop();
+                    sum++;
+                }
+            }    
+       }
+       return sum;
     }
 
     // Task 5
     // You have to write this method
     public static void removeBlock(Stack stack, int n) {
-        // To Do
+        Stack temp= new Stack();
+        for(int i=0;i<n;i++){
+            int a=stack.pop();
+            temp.push(a);
+        }
+        temp.pop();
+        for(int i=0;i<n-1;i++){
+            stack.push(temp.pop());
+        }
     }
 
     // Task 6
@@ -128,7 +147,7 @@ public class StackTasksTester {
         System.out.println("------");
 
         System.out.println("======Task 5 Test Ends Here=======\n");
-
+/* 
         System.out.println("======Task 6 Test Starts Here=======");
         System.out.println("Test 01");
         Stack st = new Stack();
@@ -150,6 +169,6 @@ public class StackTasksTester {
         printStack(reversedStack); // Expected: 50, 10, 30, 20, 10
         System.out.println("------");
 
-        System.out.println("======Task 6 Test Ends Here=======");
+        System.out.println("======Task 6 Test Ends Here=======");*/
     }
 }
